@@ -1,0 +1,31 @@
+<script>
+    //문제1. constructor로 아래 케이스 고치기
+    // var 학생1 = { name: 'Kim', age: 20 }
+    // var 학생2 = { name: 'Park', age: 21 }
+    // var 학생3 = { name: 'Lee', age: 22 }
+
+    //1. constructor
+    function studentMaker(name, age) {
+        this.name = name;
+        this.age = age;
+        this.sayHi = function () {
+            console.log(`안녕, 나는 ${this.name}이고, ${this.age}살이야.`);
+        }
+    }
+
+    let std1 = new studentMaker('kim', 20);
+    let std2 = new studentMaker('park', 22);
+    let std3 = new studentMaker('lee', 22);
+
+    //문제2. 부모prototype에 property 추가하기
+    std1.__proto__.gender = 'male';
+
+    //문제3. 모든 array에 적용되는 숫자 3을 제거해주는 함수 만들기
+    var arr = [1, 2, 3, 7, 12, 3];
+    arr.__proto__.remove3 = function () {
+        return this.filter(elem => { return elem !== 3 });
+    }
+    arr.remove3();
+
+
+</script>
