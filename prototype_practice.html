@@ -22,10 +22,10 @@
 
     //문제3. 모든 array에 적용되는 숫자 3을 제거해주는 함수 만들기
     var arr = [1, 2, 3, 7, 12, 3];
-    arr.__proto__.remove3 = function () {
-        return this.filter(elem => { return elem !== 3 });
+    arr.__proto__.remove = function (targetElem) {
+        return this.filter(elem => { return elem !== targetElem });
     }
-    arr.remove3();
+    arr.remove(3);
 
 
 </script>
