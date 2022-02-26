@@ -19,15 +19,27 @@ promThing.then(function (result) {
 
 //순차적으로 실행시키기 2번째
 
-var prom1 = new Promise((succ, fail) => {
-    succ(1);
-});
-
-prom1.then((result) => {
-    console.log(result);
-    return new Promise((succ, fail) => { //return new Promise() 뒤에 then을 계속 이어붙일 수 있다. 
-        succ(2);
+// 성공, 실패 분기 함수
+var test = function (num) {
+    return new Promise((succ, fail) => {
+        succ(num);
     });
+}
+
+var prom1 = test(1);
+
+// prom1.then((result) => {
+//     console.log(result);
+//     test(2);
+// }).then((result2) => {
+//     console.log(result2); //이게 왜 undefined일까
+// });
+
+test(1).then((result) => {
+    console.log(result);
+    return new Promise(function (succ, fail) {
+        succ(2);
+    }); //이렇게 하면 잘됨
 }).then((result) => {
     console.log(result);
 });
