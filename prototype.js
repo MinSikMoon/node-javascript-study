@@ -27,4 +27,8 @@ console.log(obj1.gender);
 //그래서 array에서 sort, toString 이런 함수들을 그냥 쓸수 있는 거지 
 console.log(obj3.toString());
 
-var arr1 = [1,2,3]; //하면 실제로는 var arr1 = new Array(1,2,3); 이렇게 생성됨 
+var arr1 = [1, 2, 3]; //하면 실제로는 var arr1 = new Array(1,2,3); 이렇게 생성됨 
+
+//1. prototype은 constructor 함수에만 몰래 생성된다. 
+let arr4 = [1, 2, 3];
+console.log(arr4.prototype);
