@@ -1,4 +1,8 @@
 <script type="module">
-    import a from './library.js' //library.js에서 a 변수를 가져다 쓰겠다. 
-    console.log(a);
+    //import a from './library.js' //library.js에서 a 변수를 가져다 쓰겠다. 
+    //console.log(a); // 가져와짐
+    import ddd, { a, b, c as ccc } from './library.js';
+    //import ddd from './library.js';
+    console.log(a, b, ccc, ddd);
+
 </script>
