@@ -48,9 +48,17 @@ const step5 = (msg) => {
 }
 
 
-step1() //1. step1 promise가 fullfilled가 되면/ succ뒤에 붙은 메시지를 줄테니, msg => step(msg) 라는 함수를 실행시켜라 
-    .then(msg => step2(msg)) // step2가 fullfilled가 되면 '2.피자 도우 준비 완료' 메시지를 넘겨줄테니/ then 다음의/ msg =>step3(msg) 함수를 실행시켜라
-    .then(msg => step3(msg))
-    .then(msg => step4(msg))
-    .then(msg => step5(msg)) // step5가 fullfilled가 되면 5.피자가 나왔습니다 라는 msg를 넘겨줄테니, then안의 console.log(msg)함수를 실행시켜라.
-    .then(msg => console.log(msg));
+// step1() //1. step1 promise가 fullfilled가 되면/ succ뒤에 붙은 메시지를 줄테니, msg => step(msg) 라는 함수를 실행시켜라 
+//     .then(msg => step2(msg)) // step2가 fullfilled가 되면 '2.피자 도우 준비 완료' 메시지를 넘겨줄테니/ then 다음의/ msg =>step3(msg) 함수를 실행시켜라
+//     .then(msg => step3(msg))
+//     .then(msg => step4(msg))
+//     .then(msg => step5(msg)) // step5가 fullfilled가 되면 5.피자가 나왔습니다 라는 msg를 넘겨줄테니, then안의 console.log(msg)함수를 실행시켜라.
+//     .then(msg => console.log(msg));
+
+
+step1() //위의 소비코드는 다음과 같이 단축 가능하다. 
+    .then(step2) // step2가 fullfilled가 되면 '2.피자 도우 준비 완료' 메시지를 넘겨줄테니/ then 다음의/ msg =>step3(msg) 함수를 실행시켜라
+    .then(step3)
+    .then(step4)
+    .then(step5) // step5가 fullfilled가 되면 5.피자가 나왔습니다 라는 msg를 넘겨줄테니, then안의 console.log(msg)함수를 실행시켜라.
+    .then(console.log);
