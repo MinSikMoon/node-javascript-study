@@ -19,17 +19,17 @@ const order = new Promise((res, rej) => {
     }
 });
 
-//2. promise 활용부
-//2.1. promise에 장착할 성공함수 정의
+
+//1.1 promise에 장착할 성공함수 정의
 const successFunc = function (msg) {
     document.querySelector('#success').textContent = `${msg}가 나왔습니당`;
 }
-//2.2. promise에 장착할 실패함수 정의
+//1.2. promise에 장착할 실패함수 정의
 const failFunc = function (msg) {
     document.querySelector('#fail').textContent = msg;
 }
 
-//2.3. promise를 켜고 성공/실패 함수를 장착하자
+//2. promise 활용부 : promise를 켜고 성공/실패 함수를 장착하자
 order
     .then(successFunc)
     .catch(failFunc);
